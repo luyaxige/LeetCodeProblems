@@ -36,5 +36,11 @@ public class Solution {
         MyStack obj = new MyStack();
         obj.checkMyStack();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/add-two-numbers/
+         * */
+        System.out.println("Add Two Numbers");
+        linkedList.checkAddTwoNumbers();
     }
 }

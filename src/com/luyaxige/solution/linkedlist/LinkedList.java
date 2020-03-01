@@ -1,5 +1,7 @@
 package com.luyaxige.solution.linkedlist;
 
+import java.util.List;
+
 public class LinkedList {
 
     public ListNode removeDuplicateNodes(ListNode head) {
@@ -40,6 +42,7 @@ public class LinkedList {
         node.val = node.next.val;
         node.next = node.next.next;
     }
+
     public void checkDeleteNodeInLinkedList() {
         ListNode first = new ListNode(4);
         ListNode second = new ListNode(5);
@@ -51,5 +54,60 @@ public class LinkedList {
         first.printAll("Before Delete: ");
         deleteNodeInLinkedList(second);
         first.printAll("After Delete: ");
+    }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(-1);
+        ListNode pre = dummyHead;
+        int carryValue = 0;
+        while (null != l1 || null != l2 || 0 != carryValue) {
+            if (null != l1) {
+                carryValue += l1.val;
+                l1 = l1.next;
+            }
+            if (null != l2) {
+                carryValue += l2.val;
+                l2 = l2.next;
+            }
+            pre.next = new ListNode(carryValue % 10);
+            carryValue /= 10;
+            pre = pre.next;
+        }
+        return dummyHead.next;
+    }
+
+    public void checkAddTwoNumbers() {
+        ListNode node1_1 = new ListNode(2);
+        ListNode node1_2 = new ListNode(4);
+        ListNode node1_3 = new ListNode(3);
+        node1_1.next = node1_2;
+        node1_2.next = node1_3;
+        node1_1.printAll("Node List One: ");
+
+        ListNode node2_1 = new ListNode(5);
+        ListNode node2_2 = new ListNode(6);
+        ListNode node2_3 = new ListNode(4);
+        node2_1.next = node2_2;
+        node2_2.next = node2_3;
+        node2_1.printAll("Node List Two: ");
+
+        ListNode result = addTwoNumbers(node1_1, node2_1);
+        result.printAll("Result Node List: ");
+
+        ListNode node3_1 = new ListNode(5);
+        node3_1.printAll("Node List Three: ");
+        ListNode node4_1 = new ListNode(5);
+        node4_1.printAll("Node List Four: ");
+        result = addTwoNumbers(node3_1, node4_1);
+        result.printAll("Result Node List: ");
+
+        ListNode node5_1 = new ListNode(0);
+        node5_1.printAll("Node List Three: ");
+        ListNode node6_1 = new ListNode(7);
+        ListNode node6_2 = new ListNode(3);
+        node6_1.next = node6_2;
+        node6_1.printAll("Node List Four: ");
+        result = addTwoNumbers(node5_1, node6_1);
+        result.printAll("Result Node List: ");
     }
 }
