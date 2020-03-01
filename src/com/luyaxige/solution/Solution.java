@@ -14,31 +14,27 @@ import static java.util.Collections.emptyList;
 public class Solution {
     public static void main(String[] args) {
 
+        LinkedList linkedList = new LinkedList();
         /**
          * https://leetcode-cn.com/problems/remove-duplicate-node-lcci/submissions/
          * */
-        LinkedList linkedList = new LinkedList();
-        ListNode head = linkedList.createReduplicatedNodeList();
-        ListNode result = linkedList.removeDuplicateNodes(head);
+        System.out.println("删除重复节点");
+        linkedList.checkRemoveDuplicateNodes();
+        System.out.println("**********************");
 
-        while(null != result) {
-            System.out.print(result.val);
-            result = result.next;
-            System.out.print(", ");
-        }
-        System.out.println();
+        /**
+         * https://leetcode-cn.com/problems/delete-middle-node-lcci/
+         * */
+        System.out.println("删除链表中的节点");
+        linkedList.checkDeleteNodeInLinkedList();
+        System.out.println("**********************");
 
         /**
          * https://leetcode-cn.com/problems/implement-stack-using-queues/
          * */
+        System.out.println("队列实现堆栈");
         MyStack obj = new MyStack();
-        obj.push(1);
-        obj.push(2);
-        obj.push(3);
-        obj.printQueue();
-        obj.pop();
-        obj.top();
-        obj.empty();
-        obj.printQueue();
+        obj.checkMyStack();
+        System.out.println("**********************");
     }
 }

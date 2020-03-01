@@ -18,6 +18,7 @@ public class MyStack {
      * Push element x onto stack.
      */
     public void push(int x) {
+        System.out.println("push " + x);
         queue.add(x);
         int size = queue.size();
         for (int i = 0; i < size - 1; i++) {
@@ -29,6 +30,8 @@ public class MyStack {
      * Removes the element on top of the stack and returns that element.
      */
     public int pop() {
+
+        System.out.println("pop "+ top());
         return queue.remove();
     }
 
@@ -53,5 +56,16 @@ public class MyStack {
             System.out.print(element);
         }
         System.out.println("]");
+    }
+
+    public void checkMyStack() {
+        push(1);
+        push(2);
+        push(3);
+        printQueue();
+        pop();
+        top();
+        empty();
+        printQueue();
     }
 }
