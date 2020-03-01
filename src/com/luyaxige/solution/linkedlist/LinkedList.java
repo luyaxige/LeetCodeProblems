@@ -36,6 +36,13 @@ public class LinkedList {
 
     public void removeDuplicateNodes(){
         ListNode head = createReduplicatedNodeList();
-        removeDuplicateNodes(head);
+        ListNode result = removeDuplicateNodes(head);
+
+        while(null != result) {
+            System.out.print(result.val);
+            result = result.next;
+            System.out.print(", ");
+        }
+        System.out.println();
     }
 }
