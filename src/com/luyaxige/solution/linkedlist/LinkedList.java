@@ -110,4 +110,53 @@ public class LinkedList {
         result = addTwoNumbers(node5_1, node6_1);
         result.printAll("Result Node List: ");
     }
+
+    public ListNode swapPairs(ListNode head) {
+        ListNode dummyHead = new ListNode(-1);
+        dummyHead.next = head;
+        ListNode curNode, nextNode, nextNextNode;
+        curNode = dummyHead;
+        while (null != curNode.next && null != curNode.next.next) {
+            nextNode = curNode.next;
+            nextNextNode = curNode.next.next;
+
+            curNode.next = nextNextNode;
+            nextNode.next = nextNextNode.next;
+            nextNextNode.next = nextNode;
+
+            curNode = nextNextNode.next;
+        }
+        return dummyHead.next;
+    }
+
+    public ListNode swapPairsRecursion(ListNode head) {
+        if (null == head || null == head.next) return head;
+        ListNode next = head.next;
+        ListNode nextNext = next.next;
+        next.next = head;
+        head.next = swapPairsRecursion(nextNext);
+        return next;
+    }
+
+    public void checkSwapPairs() {
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n1.printAll("Before Swap: ");
+        ListNode swap = swapPairs(n1);
+        swap.printAll("After Swap: ");
+
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = null;
+        n1.printAll("Before Recursion Swap: ");
+        ListNode recursionSwap = swapPairsRecursion(n1);
+        recursionSwap.printAll("After Recursion Swap: ");
+
+    }
 }

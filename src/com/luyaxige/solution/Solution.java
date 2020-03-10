@@ -40,7 +40,15 @@ public class Solution {
         /**
          * https://leetcode-cn.com/problems/add-two-numbers/
          * */
-        System.out.println("Add Two Numbers");
+        System.out.println("#2 Add Two Numbers");
         linkedList.checkAddTwoNumbers();
+        System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+         * */
+        System.out.println("#24 Swap Nodes in Pairs");
+        linkedList.checkSwapPairs();
+        System.out.println("**********************");
     }
 }
