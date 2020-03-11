@@ -1,20 +1,15 @@
 package com.luyaxige.solution;
 
+import com.luyaxige.solution.array.Array;
 import com.luyaxige.solution.linkedlist.LinkedList;
-import com.luyaxige.solution.linkedlist.ListNode;
 import com.luyaxige.solution.linkedlist.MyStack;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import static java.util.Collections.emptyList;
 
 public class Solution {
     public static void main(String[] args) {
 
         LinkedList linkedList = new LinkedList();
+        Array array = new Array();
+
         /**
          * https://leetcode-cn.com/problems/remove-duplicate-node-lcci/submissions/
          * */
@@ -49,6 +44,13 @@ public class Solution {
          * */
         System.out.println("#24 Swap Nodes in Pairs");
         linkedList.checkSwapPairs();
+        System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/
+         * */
+        System.out.println("#1013 Partition Array Into Three Parts With Equal Sum");
+        array.checkCanThreePartsEqualSum();
         System.out.println("**********************");
     }
 }
