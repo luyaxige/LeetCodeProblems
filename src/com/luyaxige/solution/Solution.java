@@ -52,5 +52,13 @@ public class Solution {
         System.out.println("#1013 Partition Array Into Three Parts With Equal Sum");
         array.checkCanThreePartsEqualSum();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/spiral-matrix/
+         * */
+        System.out.println("#54 Spiral Matrix");
+        array.checkSpiralOrder();
+        System.out.println("**********************");
+
     }
 }
