@@ -3,6 +3,7 @@ package com.luyaxige.solution;
 import com.luyaxige.solution.array.Array;
 import com.luyaxige.solution.linkedlist.LinkedList;
 import com.luyaxige.solution.linkedlist.MyStack;
+import com.luyaxige.solution.unionfind.UnionFind;
 
 public class Solution {
     public static void main(String[] args) {
@@ -60,5 +61,13 @@ public class Solution {
         array.checkSpiralOrder();
         System.out.println("**********************");
 
+
+        UnionFind uf = new UnionFind();
+        /**
+         * https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/submissions/
+         * */
+        System.out.println("#54 Spiral Matrix");
+        uf.checkGcdOfString();
+        System.out.println("**********************");
     }
 }
