@@ -1,8 +1,6 @@
 package com.luyaxige.solution.array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Array {
     public boolean canThreePartsEqualSum(int[] A) {
@@ -73,5 +71,26 @@ public class Array {
 
         array = new int[][]{{2, 5, 8}, {4, 0, -1}};
         System.out.println(spiralOrder(array));
+    }
+
+    public int majorityElement(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>(Collections.emptyMap());
+        for (int num: nums) {
+            if (map.containsKey(num)) map.put(num, map.get(num)+1);
+            else map.put(num, 1);
+        }
+        Map.Entry<Integer, Integer> majorityEntry = null;
+        for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+            if (null == majorityEntry || entry.getValue() > majorityEntry.getValue()) {
+                majorityEntry = entry;
+            }
+        }
+        assert majorityEntry != null;
+        return majorityEntry.getKey();
+    }
+
+    public void checkMajorityElement() {
+        int[] nums = {3,2,3};
+        System.out.println(majorityElement(nums));
     }
 }

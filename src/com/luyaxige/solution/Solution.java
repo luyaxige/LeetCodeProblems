@@ -69,5 +69,12 @@ public class Solution {
         System.out.println("#54 Spiral Matrix");
         uf.checkGcdOfString();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/majority-element/
+         * */
+        System.out.println("#169 Majority Element");
+        array.checkMajorityElement();
+        System.out.println("**********************");
     }
 }
