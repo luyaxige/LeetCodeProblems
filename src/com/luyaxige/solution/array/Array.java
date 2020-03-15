@@ -1,5 +1,7 @@
 package com.luyaxige.solution.array;
 
+import com.sun.deploy.panel.DeleteFilesDialog;
+
 import java.util.*;
 
 public class Array {
@@ -51,7 +53,10 @@ public class Array {
                 for (int i = length - 2; i >= l; i--) list.add(matrix[width - 1][i]);
                 for (int i = width - 2; i > w; i--) list.add(matrix[i][l]);
             }
-            length--;width--;w++;l++;
+            length--;
+            width--;
+            w++;
+            l++;
         }
         return list;
     }
@@ -75,12 +80,12 @@ public class Array {
 
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>(Collections.emptyMap());
-        for (int num: nums) {
-            if (map.containsKey(num)) map.put(num, map.get(num)+1);
+        for (int num : nums) {
+            if (map.containsKey(num)) map.put(num, map.get(num) + 1);
             else map.put(num, 1);
         }
         Map.Entry<Integer, Integer> majorityEntry = null;
-        for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (null == majorityEntry || entry.getValue() > majorityEntry.getValue()) {
                 majorityEntry = entry;
             }
@@ -90,7 +95,59 @@ public class Array {
     }
 
     public void checkMajorityElement() {
-        int[] nums = {3,2,3};
+        int[] nums = {3, 2, 3};
         System.out.println(majorityElement(nums));
+    }
+
+    int[][] flag;
+
+    public int maxAreaOfIsland(int[][] grid) {
+        int maxArea = 0;
+        if (grid.length == 0) return maxArea;
+        int width = grid.length;
+        int length = grid[0].length;
+        flag = new int[width][length];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
+                if (flag[i][j] == 1|| grid[i][j] == 0) continue;
+                int area = countArea(grid, i, j);
+                if (maxArea < area) maxArea = area;
+            }
+        }
+        return maxArea;
+    }
+
+    private int countArea(int[][] grid, int x, int y) {
+        if (!(x<grid.length && x >=0) || !(y<grid[0].length && y>=0) || flag[x][y] == 1 || grid[x][y]==0) return 0;
+        flag[x][y] = 1;
+        int area = grid[x][y];
+        area += countArea(grid, x, y + 1) + countArea(grid, x + 1, y) + countArea(grid, x, y - 1) + countArea(grid, x - 1, y);
+        return area;
+    }
+
+    public void checkMaxAreaOfIsland() {
+        int[][] grid = {{0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                        {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+                        {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
+        System.out.println(maxAreaOfIsland(grid));
+
+        grid = new int[][]{{1,1,0,1,1},
+                           {1,0,0,0,0},
+                           {0,0,0,0,1},
+                           {1,1,0,1,1}};
+        System.out.println(maxAreaOfIsland(grid));
+
+        grid = new int[][]{{0,1},
+                           {1,0}};
+        System.out.println(maxAreaOfIsland(grid));
+
+        grid = new int[][]{{0,1},
+                           {1,1}};
+        System.out.println(maxAreaOfIsland(grid));
     }
 }

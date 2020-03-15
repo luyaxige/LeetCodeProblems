@@ -76,5 +76,12 @@ public class Solution {
         System.out.println("#169 Majority Element");
         array.checkMajorityElement();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/majority-element/
+         * */
+        System.out.println("#695 Max Area Of Island");
+        array.checkMaxAreaOfIsland();
+        System.out.println("**********************");
     }
 }
