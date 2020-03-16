@@ -83,5 +83,14 @@ public class Solution {
         System.out.println("#695 Max Area Of Island");
         array.checkMaxAreaOfIsland();
         System.out.println("**********************");
+
+        Strings strings = new Strings();
+
+        /**
+         * https://leetcode-cn.com/problems/compress-string-lcci/
+         * */
+        System.out.println("#面试题01.06 Compress String LCCI");
+        strings.checkCompressString();
+        System.out.println("**********************");
     }
 }
