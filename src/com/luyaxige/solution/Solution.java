@@ -92,5 +92,12 @@ public class Solution {
         System.out.println("#面试题01.06 Compress String LCCI");
         strings.checkCompressString();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/submissions/
+         * */
+        System.out.println("#1160 Find Words That Can Be Formed by Characters");
+        strings.checkCountCharacters();
+        System.out.println("**********************");
     }
 }
