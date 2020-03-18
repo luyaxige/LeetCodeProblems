@@ -99,5 +99,12 @@ public class Solution {
         System.out.println("#1160 Find Words That Can Be Formed by Characters");
         strings.checkCountCharacters();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/rectangle-overlap/
+         * */
+        System.out.println("#836 Rectangle Overlap");
+        uf.checkIsRectangleOverlap();
+        System.out.println("**********************");
     }
 }
