@@ -1,4 +1,4 @@
-package com.luyaxige.solution.unionfind;
+package com.luyaxige.solution;
 
 import java.util.Objects;
 

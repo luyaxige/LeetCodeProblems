@@ -112,5 +112,14 @@ public class Solution {
         System.out.println("#409 Longest Palindrome");
         strings.checkLongestPalindrome();
         System.out.println("**********************");
+
+        Graph graph = new Graph();
+
+        /**
+         * https://leetcode-cn.com/problems/water-and-jug-problem/
+         * */
+        System.out.println("@365 Water and Jug Problem");
+        graph.checkCanMeasureWater();
+        System.out.println("**********************");
     }
 }
