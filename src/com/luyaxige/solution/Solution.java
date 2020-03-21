@@ -3,7 +3,6 @@ package com.luyaxige.solution;
 import com.luyaxige.solution.array.Array;
 import com.luyaxige.solution.linkedlist.LinkedList;
 import com.luyaxige.solution.linkedlist.MyStack;
-import com.luyaxige.solution.unionfind.UnionFind;
 
 public class Solution {
     public static void main(String[] args) {
@@ -105,6 +104,13 @@ public class Solution {
          * */
         System.out.println("#836 Rectangle Overlap");
         uf.checkIsRectangleOverlap();
+        System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/rectangle-overlap/
+         * */
+        System.out.println("#409 Longest Palindrome");
+        strings.checkLongestPalindrome();
         System.out.println("**********************");
     }
 }
