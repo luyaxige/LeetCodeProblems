@@ -109,7 +109,7 @@ public class Array {
         flag = new int[width][length];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < length; j++) {
-                if (flag[i][j] == 1|| grid[i][j] == 0) continue;
+                if (flag[i][j] == 1 || grid[i][j] == 0) continue;
                 int area = countArea(grid, i, j);
                 if (maxArea < area) maxArea = area;
             }
@@ -149,5 +149,29 @@ public class Array {
         grid = new int[][]{{0,1},
                            {1,1}};
         System.out.println(maxAreaOfIsland(grid));
+    }
+
+    public int minIncrementForUnique(int[] A) {
+        int size = A.length;
+        Arrays.sort(A);
+        int[] l = A;
+        int last = l[0];
+        int step = 0;
+        for (int i = 1; i < size; i++) {
+            if (l[i] == last) {
+                l[i] = last + 1;
+                step += 1;
+            }
+            if (l[i] < last) {
+                step += last - l[i] + 1;
+                l[i] = last + 1;
+            }
+            last = l[i];
+        }
+        return step;
+    }
+    public void checkMinIncrementForUnique() {
+        int[] array = {2,2,2,2,0};
+        System.out.println(minIncrementForUnique(array));
     }
 }

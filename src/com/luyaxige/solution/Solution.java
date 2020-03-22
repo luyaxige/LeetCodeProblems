@@ -118,8 +118,15 @@ public class Solution {
         /**
          * https://leetcode-cn.com/problems/water-and-jug-problem/
          * */
-        System.out.println("@365 Water and Jug Problem");
+        System.out.println("#365 Water and Jug Problem");
         graph.checkCanMeasureWater();
+        System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/
+         * */
+        System.out.println("#945 Minimum Increment to Make Array Unique");
+        array.checkMinIncrementForUnique();
         System.out.println("**********************");
     }
 }
