@@ -157,6 +157,37 @@ public class LinkedList {
         n1.printAll("Before Recursion Swap: ");
         ListNode recursionSwap = swapPairsRecursion(n1);
         recursionSwap.printAll("After Recursion Swap: ");
+    }
 
+    public ListNode middleNode(ListNode head) {
+        if (null == head) return null;
+        ListNode fast, slow;
+        slow = fast = head;
+        while (null != fast && null != fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    public void checkMiddleNode() {
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        ListNode n5 = new ListNode(5);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+
+        n1.printAll("All ListNode: ");
+        System.out.println("the Middle Node: " + middleNode(n1).val);
+
+        ListNode n6 = new ListNode(6);
+        n5.next = n6;
+
+        n1.printAll("All ListNode: ");
+        System.out.println("the Middle Node: " + middleNode(n1).val);
     }
 }

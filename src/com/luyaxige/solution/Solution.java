@@ -128,5 +128,12 @@ public class Solution {
         System.out.println("#945 Minimum Increment to Make Array Unique");
         array.checkMinIncrementForUnique();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/middle-of-the-linked-list/
+         * */
+        System.out.println("#876 Middle of the Linked List");
+        linkedList.checkMiddleNode();
+        System.out.println("**********************");
     }
 }
