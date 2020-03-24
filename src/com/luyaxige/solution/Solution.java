@@ -135,5 +135,14 @@ public class Solution {
         System.out.println("#876 Middle of the Linked List");
         linkedList.checkMiddleNode();
         System.out.println("**********************");
+
+        DynamicProgramming dynamicProgramming = new DynamicProgramming();
+
+        /**
+         * https://leetcode-cn.com/problems/the-masseuse-lcci/
+         * */
+        System.out.println("#面试题 17.16 The Masseuse LCCI");
+        dynamicProgramming.checkMassage();
+        System.out.println("**********************");
     }
 }
