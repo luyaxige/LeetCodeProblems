@@ -1,7 +1,5 @@
 package com.luyaxige.solution;
 
-import java.util.Arrays;
-
 public class DynamicProgramming {
 
     public int massage(int[] nums) {

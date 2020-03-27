@@ -144,5 +144,12 @@ public class Solution {
         System.out.println("#面试题 17.16 The Masseuse LCCI");
         dynamicProgramming.checkMassage();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/
+         * */
+        System.out.println("#914 X of a Kind in a Deck of Cards");
+        array.checkHasGroupSizeX();
+        System.out.println("**********************");
     }
 }

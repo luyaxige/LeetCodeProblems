@@ -1,7 +1,5 @@
 package com.luyaxige.solution;
 
-import org.omg.CORBA.FREE_MEM;
-
 public class Graph {
 
     public boolean canMeasureWater(int x, int y, int z) {

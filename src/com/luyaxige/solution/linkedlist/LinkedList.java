@@ -1,7 +1,5 @@
 package com.luyaxige.solution.linkedlist;
 
-import java.util.List;
-
 public class LinkedList {
 
     public ListNode removeDuplicateNodes(ListNode head) {

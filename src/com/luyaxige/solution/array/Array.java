@@ -1,7 +1,5 @@
 package com.luyaxige.solution.array;
 
-import com.sun.deploy.panel.DeleteFilesDialog;
-
 import java.util.*;
 
 public class Array {
@@ -170,8 +168,32 @@ public class Array {
         }
         return step;
     }
+
     public void checkMinIncrementForUnique() {
         int[] array = {2,2,2,2,0};
         System.out.println(minIncrementForUnique(array));
+    }
+
+    public boolean hasGroupSizeX(int[] deck) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num: deck) {
+            map.put(num, map.get(num) == null ? 1 : map.get(num) + 1);
+        }
+        int X = -1;
+        for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+            int value = entry.getValue();
+            if (-1 == X) X = value;
+            X = gcd(X, value);
+        }
+        return X >= 2;
+    }
+
+    public void checkHasGroupSizeX() {
+        int[] deck = {1, 1, 1, 2, 2, 2, 3, 3};
+        System.out.println(hasGroupSizeX(deck));
+    }
+
+    public static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }
