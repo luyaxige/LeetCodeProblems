@@ -151,5 +151,12 @@ public class Solution {
         System.out.println("#914 X of a Kind in a Deck of Cards");
         array.checkHasGroupSizeX();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/surface-area-of-3d-shapes/
+         * */
+        System.out.println("#892 Surface Area of 3D  Shapes");
+        array.checkSurfaceArea();
+        System.out.println("**********************");
     }
 }

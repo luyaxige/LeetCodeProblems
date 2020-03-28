@@ -196,4 +196,29 @@ public class Array {
     public static int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
     }
+
+    public int surfaceArea(int[][] grid) {
+        int width = grid.length;
+        int length = grid[0].length;
+        int sum = 0;
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
+                int cnt = grid[i][j];
+                if (cnt > 0) {
+                    sum += cnt == 1 ? 6 : cnt * 4 + 2;
+                    if(j+1 < length) sum -= Math.min(grid[i][j+1], grid[i][j]) * 2;
+                    if(i+1 < width) sum -= Math.min(grid[i+1][j], grid[i][j]) * 2;
+                }
+            }
+        }
+        return sum;
+    }
+
+    public void checkSurfaceArea() {
+        int[][] grid = {{2}};
+        System.out.println(surfaceArea(grid));
+
+        grid = new int[][]{{1, 0}, {0, 2}};
+        System.out.println(surfaceArea(grid));
+    }
 }
