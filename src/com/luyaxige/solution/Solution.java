@@ -158,5 +158,12 @@ public class Solution {
         System.out.println("#892 Surface Area of 3D  Shapes");
         array.checkSurfaceArea();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
+         * */
+        System.out.println("#面试题62 圆圈中最后剩下的数字");
+        array.checkLastRemaining();
+        System.out.println("**********************");
     }
 }
