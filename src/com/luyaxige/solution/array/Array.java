@@ -1,19 +1,21 @@
 package com.luyaxige.solution.array;
 
+import javafx.util.Pair;
+
 import java.util.*;
 
 public class Array {
     public boolean canThreePartsEqualSum(int[] A) {
         int size = A.length;
         int totalSum = sum(A, 0, size);
-        if (0 != totalSum % 3) return false;
+        if (0!=totalSum % 3) return false;
         int sum1 = 0, sum2 = 0, sum3 = 0;
         for (int i = 0; i < size - 2; i++) {
             sum1 += A[i];
-            if (sum1 == totalSum / 3) {
+            if (sum1==totalSum / 3) {
                 for (int j = i + 1; j < size - 1; j++) {
                     sum2 += A[j];
-                    if (sum2 == sum1) return true;
+                    if (sum2==sum1) return true;
                 }
                 return false;
             }
@@ -40,7 +42,7 @@ public class Array {
     public List<Integer> spiralOrder(int[][] matrix) {
 
         List<Integer> list = new ArrayList<>();
-        if (matrix.length == 0) return list;
+        if (matrix.length==0) return list;
         int width = matrix.length;
         int length = matrix[0].length;
         int w = 0, l = 0;
@@ -84,11 +86,11 @@ public class Array {
         }
         Map.Entry<Integer, Integer> majorityEntry = null;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (null == majorityEntry || entry.getValue() > majorityEntry.getValue()) {
+            if (null==majorityEntry || entry.getValue() > majorityEntry.getValue()) {
                 majorityEntry = entry;
             }
         }
-        assert majorityEntry != null;
+        assert majorityEntry!=null;
         return majorityEntry.getKey();
     }
 
@@ -101,13 +103,13 @@ public class Array {
 
     public int maxAreaOfIsland(int[][] grid) {
         int maxArea = 0;
-        if (grid.length == 0) return maxArea;
+        if (grid.length==0) return maxArea;
         int width = grid.length;
         int length = grid[0].length;
         flag = new int[width][length];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < length; j++) {
-                if (flag[i][j] == 1 || grid[i][j] == 0) continue;
+                if (flag[i][j]==1 || grid[i][j]==0) continue;
                 int area = countArea(grid, i, j);
                 if (maxArea < area) maxArea = area;
             }
@@ -116,7 +118,7 @@ public class Array {
     }
 
     private int countArea(int[][] grid, int x, int y) {
-        if (!(x<grid.length && x >=0) || !(y<grid[0].length && y>=0) || flag[x][y] == 1 || grid[x][y]==0) return 0;
+        if (!(x < grid.length && x >= 0) || !(y < grid[0].length && y >= 0) || flag[x][y]==1 || grid[x][y]==0) return 0;
         flag[x][y] = 1;
         int area = grid[x][y];
         area += countArea(grid, x, y + 1) + countArea(grid, x + 1, y) + countArea(grid, x, y - 1) + countArea(grid, x - 1, y);
@@ -125,27 +127,27 @@ public class Array {
 
     public void checkMaxAreaOfIsland() {
         int[][] grid = {{0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
-                        {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
-                        {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+                {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
         System.out.println(maxAreaOfIsland(grid));
 
-        grid = new int[][]{{1,1,0,1,1},
-                           {1,0,0,0,0},
-                           {0,0,0,0,1},
-                           {1,1,0,1,1}};
+        grid = new int[][]{{1, 1, 0, 1, 1},
+                {1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1},
+                {1, 1, 0, 1, 1}};
         System.out.println(maxAreaOfIsland(grid));
 
-        grid = new int[][]{{0,1},
-                           {1,0}};
+        grid = new int[][]{{0, 1},
+                {1, 0}};
         System.out.println(maxAreaOfIsland(grid));
 
-        grid = new int[][]{{0,1},
-                           {1,1}};
+        grid = new int[][]{{0, 1},
+                {1, 1}};
         System.out.println(maxAreaOfIsland(grid));
     }
 
@@ -156,7 +158,7 @@ public class Array {
         int last = l[0];
         int step = 0;
         for (int i = 1; i < size; i++) {
-            if (l[i] == last) {
+            if (l[i]==last) {
                 l[i] = last + 1;
                 step += 1;
             }
@@ -170,19 +172,19 @@ public class Array {
     }
 
     public void checkMinIncrementForUnique() {
-        int[] array = {2,2,2,2,0};
+        int[] array = {2, 2, 2, 2, 0};
         System.out.println(minIncrementForUnique(array));
     }
 
     public boolean hasGroupSizeX(int[] deck) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num: deck) {
-            map.put(num, map.get(num) == null ? 1 : map.get(num) + 1);
+        for (int num : deck) {
+            map.put(num, map.get(num)==null ? 1:map.get(num) + 1);
         }
         int X = -1;
-        for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             int value = entry.getValue();
-            if (-1 == X) X = value;
+            if (-1==X) X = value;
             X = gcd(X, value);
         }
         return X >= 2;
@@ -194,7 +196,7 @@ public class Array {
     }
 
     public static int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
+        return b==0 ? a:gcd(b, a % b);
     }
 
     public int surfaceArea(int[][] grid) {
@@ -205,9 +207,9 @@ public class Array {
             for (int j = 0; j < length; j++) {
                 int cnt = grid[i][j];
                 if (cnt > 0) {
-                    sum += cnt == 1 ? 6 : cnt * 4 + 2;
-                    if(j+1 < length) sum -= Math.min(grid[i][j+1], grid[i][j]) * 2;
-                    if(i+1 < width) sum -= Math.min(grid[i+1][j], grid[i][j]) * 2;
+                    sum += cnt==1 ? 6:cnt * 4 + 2;
+                    if (j + 1 < length) sum -= Math.min(grid[i][j + 1], grid[i][j]) * 2;
+                    if (i + 1 < width) sum -= Math.min(grid[i + 1][j], grid[i][j]) * 2;
                 }
             }
         }
@@ -237,7 +239,38 @@ public class Array {
     }
 
     public void checkLastRemaining() {
-        System.out.println(lastRemaining(5,3));
-        System.out.println(lastRemaining(10,17));
+        System.out.println(lastRemaining(5, 3));
+        System.out.println(lastRemaining(10, 17));
+    }
+
+    public boolean isValidParentheses(String s) {
+        int size = s.length();
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < size; i++) {
+            char c = s.charAt(i);
+            if (c=='(' || c=='[' || c=='{') stack.push(c);
+            else if (stack.empty()) return false;
+            else if (c==')' && stack.pop()!='(') return false;
+            else if (c==']' && stack.pop()!='[') return false;
+            else if (c=='}' && stack.pop()!='{') return false;
+        }
+        return stack.empty();
+    }
+
+    public void checkIsValidParentheses() {
+        String s = "()";
+        System.out.println(isValidParentheses(s));
+
+        s = "()[]{}";
+        System.out.println(isValidParentheses(s));
+
+        s = "(]";
+        System.out.println(isValidParentheses(s));
+
+        s = "([)]";
+        System.out.println(isValidParentheses(s));
+
+        s = "]";
+        System.out.println(isValidParentheses(s));
     }
 }

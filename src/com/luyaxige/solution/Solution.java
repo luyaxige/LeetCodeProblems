@@ -165,5 +165,12 @@ public class Solution {
         System.out.println("#面试题62 圆圈中最后剩下的数字");
         array.checkLastRemaining();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/valid-parentheses/
+         * */
+        System.out.println("#20 Valid Parentheses");
+        array.checkIsValidParentheses();
+        System.out.println("**********************");
     }
 }
