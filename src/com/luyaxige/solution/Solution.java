@@ -172,5 +172,12 @@ public class Solution {
         System.out.println("#20 Valid Parentheses");
         array.checkIsValidParentheses();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/rotate-matrix-lcci/
+         * */
+        System.out.println("面试题01.07 旋转矩阵");
+        array.checkRotate();
+        System.out.println("**********************");
     }
 }

@@ -273,4 +273,31 @@ public class Array {
         s = "]";
         System.out.println(isValidParentheses(s));
     }
+
+    public void rotate(int[][] matrix) {
+        int N = matrix.length;
+        if (N == 0) return ;
+        for (int i = 0; i < (N + 1) / 2; i++) {
+            for (int j = 0; j < N / 2; j++) {
+                int origin = matrix[i][j];
+                matrix[i][j] = matrix[N - j - 1][i];
+                matrix[N - j - 1][i] = matrix[N - i - 1][N - j - 1];
+                matrix[N - i - 1][N - j - 1] = matrix[j][N - i - 1];
+                matrix[j][N - i - 1] = origin;
+            }
+        }
+    }
+
+    public void checkRotate() {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        System.out.println(Arrays.deepToString(matrix));
+        rotate(matrix);
+        System.out.println(Arrays.deepToString(matrix));
+
+        matrix = new int[][]{{5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}};
+        System.out.println(Arrays.deepToString(matrix));
+        rotate(matrix);
+        System.out.println(Arrays.deepToString(matrix));
+    }
+
 }
