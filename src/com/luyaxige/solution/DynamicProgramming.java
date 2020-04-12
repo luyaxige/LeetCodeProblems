@@ -1,10 +1,13 @@
 package com.luyaxige.solution;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DynamicProgramming {
 
     public int massage(int[] nums) {
         int size = nums.length;
-        if (size == 0) return 0;
+        if (size==0) return 0;
         int dp0 = 0, dp1 = 0;
         for (int num : nums) {
             int tdp0 = Math.max(dp0, dp1);
@@ -26,5 +29,41 @@ public class DynamicProgramming {
                 212, 192, 125, 77, 223, 188, 99, 228, 90, 25, 193, 211, 84, 239, 119, 234, 85, 83, 123,
                 120, 131, 203, 219, 10, 82, 35, 120, 180, 249, 106, 37, 169, 225, 54, 103, 55, 166, 124
         }));
+    }
+
+    public int superEggDrop(int K, int N) {
+        return dp(K, N);
+    }
+
+    Map<Integer, Integer> memo = new HashMap<>();
+    private int dp(int K, int N) {
+        if (!memo.containsKey(N * 100 + K)) {
+            int ans;
+            if (N == 0) ans = 0;
+            else if (K == 1) ans =  N;
+            else {
+                int lo = 1, hi = N;
+                while (lo + 1 < hi) {
+                    int mid = (lo + hi) / 2;
+                    int t1 = dp(K - 1, mid - 1);
+                    int t2 = dp(K, N - mid);
+
+                    if (t1 < t2) lo = mid;
+                    else if (t1 > t2) hi = mid;
+                    else lo = hi = mid;
+                }
+                ans = 1 + Math.min(Math.max(dp(K - 1, lo - 1), dp(K, N - lo)),
+                                   Math.max(dp(K - 1, hi - 1), dp(K, N - hi)));
+            }
+            memo.put(N * 100 + K, ans);
+        }
+        return memo.get(N * 100 + K);
+    }
+
+    public void checkSuperEggDrop() {
+        System.out.println(superEggDrop(1, 2));
+        System.out.println(superEggDrop(2, 6));
+        System.out.println(superEggDrop(3, 14));
+        System.out.println(superEggDrop(2, 100));
     }
 }

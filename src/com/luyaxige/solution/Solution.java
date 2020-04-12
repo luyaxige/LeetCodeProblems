@@ -186,5 +186,12 @@ public class Solution {
         System.out.println("#1111 Maximum Nesting Depth of Two Valid Parentheses Strings");
         array.checkMaxDepthAfterSplit();
         System.out.println("**********************");
+
+        /**
+         * https://leetcode-cn.com/problems/super-egg-drop/
+         * */
+        System.out.println("#887 Super Egg Drop");
+        dynamicProgramming.checkSuperEggDrop();
+        System.out.println("**********************");
     }
 }
