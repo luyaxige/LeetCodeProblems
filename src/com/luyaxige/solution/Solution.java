@@ -5,8 +5,8 @@ import com.luyaxige.solution.linkedlist.LinkedList;
 import com.luyaxige.solution.linkedlist.MyStack;
 
 public class Solution {
-    public static void main(String[] args) {
 
+    public void run() {
         LinkedList linkedList = new LinkedList();
         Array array = new Array();
 
